@@ -7,6 +7,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
   <link rel="stylesheet" href="./ticket.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
   
   <title>Adelaja Samuel | Conference ticket generator</title>
 
@@ -17,41 +21,50 @@
 </head>
 <body>
   <main>
-    <div class="header">
-      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
-      <p>Secure your spot at next year's biggest coding conference.</p>
-    </div>
+    <div class="container">
+      <div class="header">
+        <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+        <p>Secure your spot at next year's biggest coding conference.</p>
+      </div>
 
-    <!-- Form starts -->
-    <div class="form">
-      <div class="upload">
-        <h2>Upload Avatar</h2>
-        <img src="./assets/images/icon-upload.svg" alt="upload icon">
-        <p>Drag and drop or click to upload</p>
-        <div class="info">
-          <img src="./assets/images/icon-info.svg" alt="info icon">
-          <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+      <!-- Form starts -->
+      <div class="form">
+        <div class="upload">
+          <h2>Upload Avatar</h2>
+          <div class="file">
+            <img src="./assets/images/icon-upload.svg" alt="upload icon">
+            <input type="file" name="avatar">
+            <p>Drag and drop or click to upload</p>
+          </div>
+          <div class="info">
+            <img src="./assets/images/icon-info.svg" alt="info icon">
+            <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+          </div>
+        </div>
+
+        <div class="name-field">
+          <label for="full-name">Full Name</label>
+          <input type="text" name="full-name" id="full-name" required>
+        </div>
+
+        <div class="email">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" placeholder="example@email.com" required>
+        </div>
+
+        <div class="github">
+          <label for="github-username">GitHub Username</label>
+          <input type="text" name="username" id="github-username" placeholder="@yourusername">
+        </div>
+
+        <div class="button">
+          <input type="submit">
         </div>
       </div>
+      
 
-      <div class="name">
-        <h2>Full Name</h2>
-        <div class="name-field"></div>
-      </div>
-
-      <div class="email">
-        <h2>Email Address</h2>
-        <p class="field">example@email.com</p>
-      </div>
-
-      <div class="github">
-        <h2>GitHub Username</h2>
-        <p class="field">@yourusername</p>
-      </div>
+      <!-- Form ends -->
     </div>
-    <button>Generate My Ticket</button>
-
-    <!-- Form ends -->
   </main>
 
 

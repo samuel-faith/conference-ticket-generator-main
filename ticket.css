@@ -3,6 +3,132 @@
     padding: 0;
 }
 
+body {
+    background-image: url(./assets/images/background-desktop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-family: "Inconsolata", serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 425px 0 425px;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.7rem;
+    line-height: 3rem;
+    margin-bottom: 15px;
+}
+
+.header p {
+    opacity: 70%;
+    font-size: 16px;
+}
+
+.header {
+    margin-bottom: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+h2 {
+    font-size: 13px;
+    font-weight: 350;
+}
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.file {
+    margin-top: 10px;
+    padding: 20px;
+    text-align: center;
+    border: dashed hsl(245, 15%, 58%) 2px;
+    border-radius: .5rem;
+    background-color: hsl(246, 43%, 17%);
+}
+
+.file p {
+    font-size: 14px;
+    opacity: 75%;
+    font-weight: 300;
+}
+
+.file img {
+    border: solid 1px hsl(246, 18%, 31%);
+    background-color: hsl(246, 18%, 31%);
+    border-radius: .5rem;
+    padding: 5.5px;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.info p {
+    font-size: 12px;
+    opacity: 70%;
+}
+
+.info img {
+    height: 12px;
+    width: 12px;
+}
+
+input {
+    border: solid 1px rgb(135, 130, 130);
+    padding: 10px;
+    border-radius: .5rem;
+    background-color: hsl(246, 43%, 17%);
+    width: 300px;
+    color: white;
+}
+
+
+.name-field, .email, .github {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    font-family: "Inconsolata", serif;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+::placeholder {
+    font-family: "Inconsolata", serif;
+    color: white;
+    opacity: 60%;
+    font-weight: 400;
+}
+
+input:active {
+    border: solid 1px rgb(135, 130, 130);
+}
+
 .attribution { 
     font-size: 11px; 
     text-align: center; 
