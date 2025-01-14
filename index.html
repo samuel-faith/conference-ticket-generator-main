@@ -21,7 +21,26 @@
 </head>
 <body>
   <main>
+    <div class="image-container">
+      <div class="svg-image">
+        <img src="./assets/images/pattern-lines.svg" alt="">
+      </div>
+      <div class="svg-image">
+        <img src="./assets/images/pattern-squiggly-line-top.svg" alt="">
+      </div>
+      <div class="svg-image">
+        <img src="./assets/images/pattern-squiggly-line-bottom.svg" alt="">
+      </div>
+      <div class="svg-image">
+        <img src="./assets/images/pattern-circle.svg" alt="">
+      </div>
+      <div class="svg-image">
+        <img src="./assets/images/pattern-circle.svg" alt="">
+      </div>
+    </div>
+
     <div class="container">
+      <img class="logo" src="./assets/images/logo-full.svg" alt="Coding Conf">
       <div class="header">
         <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
         <p>Secure your spot at next year's biggest coding conference.</p>
@@ -29,71 +48,79 @@
 
       <!-- Form starts -->
       <div class="form">
-        <div class="upload">
-          <h2>Upload Avatar</h2>
-          <div class="file">
+        <form target="_blank" action="./success.html">
+          <label for="file-input">Upload avatar</label>
+          <div class="upload">
+            <input type="file" id="file-input" accept="image/png, image/jpeg, image/jpg">
             <img src="./assets/images/icon-upload.svg" alt="upload icon">
-            <input type="file" name="avatar">
             <p>Drag and drop or click to upload</p>
+            <div class="file-action">
+              <button type="button" id="remove-image">Remove Image</button>
+              <button type="button" id="change-image">Change Image</button>
+            </div>
           </div>
-          <div class="info">
-            <img src="./assets/images/icon-info.svg" alt="info icon">
-            <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+          <div class="info hint">
+            <img class="info-text" src="./assets/images/icon-info.svg" alt="icon-info">
+            <p class="info-text">Upload your photo (JPG or PNG, max size: 500KB).</p>
           </div>
-        </div>
+  
+          <div class="name-field">
+            <label for="full-name">Full Name</label>
+            <input type="text" name="full-name" id="full-name">
+          </div>
 
-        <div class="name-field">
-          <label for="full-name">Full Name</label>
-          <input type="text" name="full-name" id="full-name" required>
-        </div>
+          <div class="email">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="example@email.com" required>
+            <div class="info hint error">
+              <img src="./assets/images/icon-info.svg" alt="icon-info">
+              <p>Please enter a valid email address</p>
+            </div>
+          </div>
 
-        <div class="email">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" id="email" placeholder="example@email.com" required>
-        </div>
-
-        <div class="github">
-          <label for="github-username">GitHub Username</label>
-          <input type="text" name="username" id="github-username" placeholder="@yourusername">
-        </div>
-
-        <div class="button">
-          <input type="submit">
-        </div>
+          <div class="github">
+            <label for="github-username">GitHub Username</label>
+            <input type="text" name="username" id="github-username" placeholder="@yourusername">
+          </div>
+          <input class="button" type="submit" value="Generate My Ticket">
+        </form>
       </div>
-      
-
       <!-- Form ends -->
     </div>
+
+    <!-- Generated tickets starts -->
+    <div class="display-data" style="display: none;">
+      <img src="./assets/images/logo-full.svg" alt="Coding Conf">
+
+      <div class="header">
+        <h1>Congrats, <span class="gradient-text"></span>! Your ticket is ready.</h1>
+        <p>We've emailed your ticket to <span class="display-email"></span> and will send updates in the run up to the event.</p>
+      </div>
+
+      <div class="ticket-container">
+        <div class="logo">
+          <img src="./assets/images/logo-full.svg" alt="Coding Conf">
+        </div>
+        <p class="date">Jan 31, 2025 / Austin, TX</p>
+
+        <div class="user-details">
+          <img src="" alt="">
+
+          <div class="user-info">
+            <span class="display-name"></span>
+            <div class="github-profie">
+              <img src="assets/images/icon-github.svg" alt="github-logo">
+              <span class="display-github"></span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ticket-number">#01609</p>
+      </div>
+    </div>
+    <!-- Generated tickets ends -->
   </main>
 
-
-  
-
-
-  
-
-  
-  
-
-  
-  
-
-  
-
-  
-
-  <!-- Generated tickets starts -->
-
-  Congrats, <!-- Full Name -->! Your ticket is ready.
-
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
-
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
-
-  <!-- Generated tickets ends -->
-  
   <div class="attribution"> 
     Coded by <a href="https://github.com/samuel-faith">Adelaja Samuel</a>.
   </div>
