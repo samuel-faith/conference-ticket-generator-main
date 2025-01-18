@@ -1,32 +1,82 @@
+:root {
+    --Neutral0: hsl(0, 0%, 100%);
+    --Neutral300: hsl(252, 6%, 83%);
+    --Neutral500: hsl(245, 15%, 58%);
+    --Neutral700: hsl(245, 19%, 35%);
+    --Neutral900: hsl(248, 70%, 10%);
+    --Orange500: hsl(7, 88%, 67%);
+    --Orange700: hsl(7, 71%, 60%);
+    --Gradient-text: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-color: hsl(248, 70%, 10%);
-    font-family: "Inconsolata", serif;
-    min-height: 100vh;
-    color: white;
-}
-
 img {
     max-width: 100%;
     display: block;
 }
+
+body {
+    background-color: var(--Neutral900);
+    font-family: "Inconsolata", serif;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .image-container {
     background: url(./assets/images/background-desktop.png) no-repeat center center / cover;
     width: 100%;
-    height: 100vh;
-    position: relative;
+    height: 100%;
+    position: fixed;
     overflow-y: hidden;
+    aspect-ratio: 16 / 9;
     display: grid;
     place-content: center;
+    z-index: -1;
+    overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 .svg-image {
     position: absolute;
+
+}
+
+.svg-image:nth-child(1) {
+    width: 100%;
+}
+
+.svg-image:nth-child(1) img {
+    width: 100%;
+}
+
+.svg-image:nth-child(2) {
+    top: 100px;
+    right: 0;
+}
+
+.svg-image:nth-child(3) {
+    left: 0;
+    bottom: 0;
+}
+
+.svg-image:nth-child(4) {
+    top: -100px;
+    left: 100px;
+}
+
+.svg-image:nth-child(5) {
+    top: 50%;
+    right: 350px;
 }
 
 .gradient-text {
@@ -49,12 +99,15 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    width:50%;
 }
 
 .header h1 {
     font-size: 3rem;
     line-height: 3rem;
     margin-bottom: 15px;
+    padding: 0 2rem 0 2rem;
 }
 
 .header p {
@@ -66,7 +119,9 @@ img {
     margin: 40px 0 30px 0;
 }
 
-.logo {
+.container .logo {
+    margin: 1rem 0 0 0;
+    padding: 0;
     width: 150px;
 }
 
@@ -96,7 +151,7 @@ h2 {
     -webkit-backdrop-filter: blur(2px) saturate(100%);
     transition: all 200ms ease;
     border-radius: .5rem;
-    padding: 3rem;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -116,14 +171,34 @@ h2 {
     font-weight: 300;
 }
 
-.file img {
+.upload img {
     border: solid 1px hsl(246, 18%, 31%);
-    background-color: hsl(246, 18%, 31%);
+    background-color: hsl(245, 19%, 35%);
     border-radius: .5rem;
-    padding: 5.5px;
-    height: 20px;
-    width: 20px;
-    margin-bottom: 10px;
+    height: 40px;
+    width: 40px;
+    margin-bottom: .5rem;
+    padding: 5px;
+    display: grid;
+    place-content: center;
+    object-fit: cover;
+}
+
+.file-action {
+    display: none;
+    margin-top: 1rem;
+}
+
+.file-action.show {
+    display: block;
+}
+
+.file-action button {
+    cursor: pointer;
+    background-color: hsl(245, 15%, 58%);
+    color: hsl(252, 6%, 83%);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
 }
 
 .info {
@@ -155,8 +230,6 @@ input {
     padding: 10px;
     border-radius: .5rem;
     background-color: hsl(246, 43%, 17%);
-    backdrop-filter: blur(2px) saturate(100%);
-    -webkit-backdrop-filter: blur(2px) saturate(100%);
     color: white;
     font-family: "Inconsolata", serif;
     transform: all 200ms ease;
@@ -188,29 +261,168 @@ label {
     font-weight: 400;
 }
 
-.form input:hover {
+.form input:hover, .upload:hover {
     background-color: hsla(246, 15%, 58%, .6);
+}
+
+.upload #file-input {
+    display: none;
 }
 
 .form input.error {
     border: 1px solid hsl(245, 15%, 58%);
 }
 
-.button {
-    background-color: hsl(7, 71%, 60%) !important;
+.generate-ticket {
+    background-color: var(--Orange500) !important;
     color: black;
     font-weight: 700;
     border: none;
     padding: 10px;
     cursor: pointer;
     width: 100%;
+    font-size: 1rem;
+    transition: all 200ms ease;
+}
+
+.generate-ticket:hover {
+    background-color: var(--Orange700) !important;
+}
+
+.display-data {
+    padding: 1rem;
+    margin: auto;
+    width: 90%;
+    position: relative;
+    max-width: 800px;
+    z-index: 20;
+}
+
+.display-data .logo {
+    margin: 0 auto 2rem auto;
+}
+
+.display-data .header {
+    margin-bottom: 6rem;
+    text-align: center;
+}
+
+.display-data .header p {
+    padding: 0 7.5rem;
+}
+
+.display-data .ticket-container {
+    background-color: var(--Neutral500);
+    background: url(./assets/images/pattern-ticket.svg) no-repeat;
+    background-size: contain;
+    aspect-ratio: 16 / 9;
+    max-width: 500px;
+    padding: 1.5rem 0 0 1rem;
+    margin: auto;
+    position: relative;
+    border-radius: .5rem;
+}
+
+.ticket-container .date {
+    color: var(--Neutral300);
+    padding: .5rem 0 0 3rem;
+    margin-bottom: 3rem;
+}
+
+.ticket-container .user-details {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.user-details img {
+    width: 50px;
+    border-radius: .75rem;
+}
+
+.user-details .user-info .display-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.user-details .user-info .github-profile {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.github-profile img {
+    width: 20px;
+}
+
+.ticket-number {
+    position: absolute;
+    transform: rotate(90deg);
+    font-size: 1.75rem;
+    color: var(--Neutral500);
+    top: 36%;
+    right: 5px;
 }
 
 .attribution { 
     font-size: 11px; 
-    text-align: center; 
+    text-align: center;
+    padding: 30px 20px;
 }
 
 .attribution a { 
     color: hsl(0, 0%, 100%); 
+}
+
+
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 100%;
+    }
+
+    .svg-image:nth-child(2) {
+        top: 50px;
+    }
+
+    .svg-image:nth-child(4) {
+        top: -80px;
+        left: -30px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+        padding: 0 2rem 0 2rem;
+    }
+
+    .form {
+        padding: 1rem 0;
+        width: 65%;
+    }
+
+    .display-data {
+        padding: 0;
+    }
+
+    .display-data .header p {
+        padding: 0;
+    }
+
+    .user-details img {
+        width: 35px;
+        padding-left: 1rem;
+    }
+
+    .ticket-container .date {
+        margin-bottom: 2rem;
+    }
+
+    .user-details .user-info .display-name {
+        font-size: 1.25rem;
+    }
+
+    .ticket-number {
+        font-size: 1.25rem;
+    }
 }
