@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
 
             const validTypes = ["image/jpeg", "image/png", "image/jpg"];
-            const maxSize = 500 * 1024; // 500 KB
+            const maxSize = 1000 * 1024; // 500 KB
 
             if (!validTypes.includes(file.type)) {
 
