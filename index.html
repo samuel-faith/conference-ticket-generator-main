@@ -9,15 +9,11 @@
   <link rel="stylesheet" href="./ticket.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
   
   <title>Adelaja Samuel | Conference ticket generator</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    
-  </style>
 </head>
 <body>
   <div class="image-container">
@@ -38,91 +34,101 @@
     </div>
   </div>
 
-  <div class="container">
-    <img class="logo" src="./assets/images/logo-full.svg" alt="Coding Conf">
-    <div class="header">
-      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+  <div class="content-container">
+    <div class="form-content" id="form-content">
+      <img class="first-logo" src="./assets/images/logo-full.svg" alt="Coding Conf">
+      <div class="headings">
+        <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
       <p>Secure your spot at next year's biggest coding conference.</p>
-    </div>
+      </div>
 
-    <!-- Form starts -->
-    <div class="form">
-      <form>
-        <label for="file-input">Upload avatar</label>
-        <div class="upload">
-          <input type="file" id="file-input" accept="image/png, image/jpeg, image/jpg">
-          <img src="./assets/images/icon-upload.svg" alt="upload icon">
-          <p>Drag and drop or click to upload</p>
-          <div class="file-action">
-            <button type="button" id="remove-image">Remove Image</button>
-            <button type="button" id="change-image">Change Image</button>
+      <!-- Form starts -->
+      <form id="ticket-form">
+        <div class="form-item">
+          <label for="file-input">Upload avatar</label>
+          <div id="drop-area" class="upload-box">
+            <input type="file" id="file-input" class="file-input" accept="image/png, image/jpeg, image/jpg">
+            <img id="uploaded-image" class="uploaded-image" src="./assets/images/icon-upload.svg" alt="upload icon">
+            <div class="message-action" id="message-action">
+              <p>Drag and drop or click to upload</p>
+            </div>
+            <div class="file-action" id="file-action">
+              <button type="button" id="remove-image">Remove Image</button>
+              <button type="button" id="change-image">Change Image</button>
+            </div>
           </div>
-        </div>
-        <div class="info hint">
-          <img class="info-text" src="./assets/images/icon-info.svg" alt="icon-info">
-          <p class="info-text">Upload your photo (JPG or PNG, max size: 500KB).</p>
+          <p id="upload-hint" class="upload-hint">
+            <img class="logo" src="./assets/images/icon-info.svg" alt="icon-info">Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
         </div>
 
-        <div class="name-field">
+        <div class="form-item">
           <label for="full-name">Full Name</label>
           <input type="text" name="full-name" id="full-name" class="required">
+          <p class="text-hint">
+            <img class="logo" src="./assets/images/icon-info.svg" alt="icon-info">Please enter your full name.
+          </p>
         </div>
 
-        <div class="email">
+        <div class="form-item">
           <label for="email">Email Address</label>
           <input type="email" name="email" id="email" placeholder="example@email.com" class="required">
-          <div class="info hint error">
-            <img src="./assets/images/icon-info.svg" alt="icon-info">
-            <p>Please enter a valid email address</p>
-          </div>
+          <p class="text-hint">
+            <img class="logo" src="./assets/images/icon-info.svg" alt="icon-info">Please enter your email address.
+          </p>
         </div>
 
-        <div class="github">
-          <label for="github-username">GitHub Username</label>
-          <input type="text" name="username"  class="required" id="github-username" placeholder="@yourusername">
+        <div class="form-item">
+          <label for="github">GitHub Username</label>
+          <input type="text" name="username"  class="required" id="github" placeholder="@yourusername">
+          <p class="text-hint">
+            <img class="logo" src="./assets/images/icon-info.svg" alt="icon-info">Please enter a valid username.
+          </p>
         </div>
-        <input class="generate-ticket" type="submit" value="Generate My Ticket">
+        <button id="generate-ticket" class="generate-ticket" type="submit">Generate My Ticket</button>
       </form>
     </div>
     <!-- Form ends -->
-  </div>
 
-  <!-- Generated tickets starts -->
-  <div class="display-data" style="display: none;">
-    <img class="logo" src="./assets/images/logo-full.svg" alt="Coding Conf">
+    
+    <!-- Generated tickets starts -->
+    <div id="display-data" class="display-data">
 
-    <div class="header">
-      <h1>Congrats, <span class="gradient-text"></span>! Your ticket is ready.</h1>
-      <p>We've emailed your ticket to <span class="display-email"></span> and will send updates in the run up to the event.</p>
-    </div>
+      <div class="ticket-logo"><img src="./assets/images/logo-full.svg" alt="Coding Conf"></div>
 
-    <div class="ticket-container">
-      <div class="ticket-logo">
-        <img src="./assets/images/logo-full.svg" alt="Coding Conf">
+      <div class="headings">
+        <h1>Congrats, <span id="header-name" class="gradient-text"></span>! Your ticket is ready.</h1>
+        <p>We've emailed your ticket to <span id="display-email" class="header-email"></span> and will send updates in the run up to the event.</p>
       </div>
-      <p class="date">Jan 31, 2025 / Austin, TX</p>
 
-      <div class="user-details">
-        <img src="" alt="">
-
-        <div class="user-info">
-          <span class="display-name"></span>
-          <div class="github-profile">
-            <img src="assets/images/icon-github.svg" alt="github-logo">
-            <span class="display-github"></span>
+      <div class="ticket-container">
+        <div class="display-logo">
+          <img src="./assets/images/logo-full.svg" alt="Coding Conf">
+        </div>
+        <p class="date">Jan 31, 2025 / Austin, TX</p>
+  
+        <div class="ticket-user">
+          <img id="display-image" src="" alt="">
+  
+          <div class="user-info">
+            <span id="display-name"></span>
+            <div class="github-username">
+              <img src="assets/images/icon-github.svg" alt="github-logo">
+              <span id="display-github"></span>
+            </div>
           </div>
         </div>
+  
+        <p class="ticket-number">#01609</p>
       </div>
-
-      <p class="ticket-number">#01609</p>
     </div>
+    <!-- Generated tickets ends -->
   </div>
-  <!-- Generated tickets ends -->
 
+  </div>
   <div class="attribution"> 
     Coded by <a href="https://github.com/samuel-faith">Adelaja Samuel</a>.
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="./ticket.js" charset="UTF-8"></script>
 </body>
 </html>

@@ -13,11 +13,41 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inconsolata", serif;
+}
+
+.display-data {
+    display: none;
+}
+
+.display-data .headings {
+   padding: 0 2rem 0 2rem;
+}
+
+.display-data .headings p {
+    padding: 0 25% 0 25%;
+}
+
+.display-data.show {
+    display: block;
+}
+
+.ticket-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
     max-width: 100%;
     display: block;
+}
+
+.first-logo {
+    margin-top: 2rem; /* Space above the logo */
+     /* Space below the logo */
+    width: 150px; /* Set a reasonable width */
 }
 
 body {
@@ -48,7 +78,6 @@ body {
 
 .svg-image {
     position: absolute;
-
 }
 
 .svg-image:nth-child(1) {
@@ -79,109 +108,166 @@ body {
     right: 350px;
 }
 
+.headings {
+    margin: 1.5rem 0; /* Consistent spacing */
+    text-align: center;
+}
+
+.headings h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+    padding: 0 2rem 0 2rem;
+    font-weight: 700;
+}
+
+.headings p {
+    font-size: 1rem;
+    opacity: 70%;
+}
+
 .gradient-text {
+    background: var(--Gradient-text);
     background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.display-email {
-    color: hsl(7, 88%, 67%);
+.header-email {
+    color: hsl(7, 86%, 67%);
 }
 
-.logo {
+#ticket-form {
+    width: 50%; /* Full width on smaller screens */
+    max-width: 500px; /* Limit width for better readability */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.form-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: auto;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-content.hide {
+    display: none;
+}
+
+.form-content.logo {
     margin: 0 auto 2rem auto;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    width:50%;
+.form-item {
+    margin-bottom: 1rem;
 }
 
-.header h1 {
-    font-size: 3rem;
-    line-height: 3rem;
-    margin-bottom: 15px;
-    padding: 0 2rem 0 2rem;
-}
-
-.header p {
-    opacity: 70%;
-    font-size: 16px;
-}
-
-.header {
-    margin: 40px 0 30px 0;
-}
-
-.container .logo {
-    margin: 1rem 0 0 0;
-    padding: 0;
-    width: 150px;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    width: 50%;
-}
-
-h2 {
+.form-item label {
+    font-family: "Inconsolata", serif;
+    margin-bottom: .5rem;
     font-size: 13px;
-    font-weight: 350;
+    display: block;
 }
 
-.upload {
+.form-item input {
+    border: solid 1px rgb(135, 130, 130);
+    width: 100%;
+    padding: 10px;
+    border-radius: .5rem;
+    background-color: hsl(246, 43%, 17%);
+    color: white;
+    font-family: "Inconsolata", serif;
+    transform: all 200ms ease;
+}
+
+.form-item input:hover {
+    background-color: hsla(246, 15%, 58%, .6);
+}
+
+.form-item input.error {
+    border: 1px solid --Neutral500;
+}
+
+.form-item .upload-hint {
+    color: var(--Neutral300);
+    font-size: .5rem;
+    display: flex;
+    gap: .5rem;
+}
+
+.form-item .upload-hint.error {
+    color: var(--Orange500);
+}
+
+.form-item .text-hint {
+    color: var(--Neutral300);
+    font-size: .6rem;
+    gap: .5rem;
+    display: flex;
+    margin-top: .7rem;
+    display: none;
+}
+
+.form-item .text-hint.error {
+    color: var(--Orange500);
+    display: flex;
+}
+
+.form-item .upload-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
-    background-color: hsl(244, 31%, 18%);
+    background-color: hsl(246, 43%, 17%);
     outline: 2px dashed hsl(245, 15%, 58%);
-    backdrop-filter: blur(2px) saturate(100%);
-    -webkit-backdrop-filter: blur(2px) saturate(100%);
     transition: all 200ms ease;
     border-radius: .5rem;
     padding: 1rem;
     text-align: center;
 }
 
-
-.file {
-    margin-top: 10px;
-    padding: 20px;
-    text-align: center;
-    border: dashed hsl(245, 15%, 58%) 2px;
-    border-radius: .5rem;
+.form-item .upload-box:hover {
     background-color: hsl(246, 43%, 17%);
 }
 
-.file p {
-    font-size: 14px;
-    opacity: 75%;
-    font-weight: 300;
+.form-item .upload-box .file-input {
+    display: none;
 }
 
-.upload img {
+.form-item .upload-box .uploaded-image {
     border: solid 1px hsl(246, 18%, 31%);
     background-color: hsl(245, 19%, 35%);
     border-radius: .5rem;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     margin-bottom: .5rem;
-    padding: 5px;
-    display: grid;
-    place-content: center;
+    padding: .2rem;
+}
+
+.form-item .upload-box .uploaded-image img {
+    width: 40px;
+    height: 40px;
     object-fit: cover;
+}
+
+.message-action.hide {
+    display: none;
+}
+
+.message-action button {
+    cursor: pointer;
+    background-color: hsl(245, 15%, 58%);
+    color: hsl(252, 6%, 83%);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
 }
 
 .file-action {
@@ -201,88 +287,18 @@ h2 {
     border-radius: .25rem;
 }
 
-.info {
-    display: flex;
-    gap: 5px;
-    margin-top: 10px;
-}
-
-.info p {
-    font-size: 8px;
-    opacity: 70%;
-}
-
-.info p.error {
-    color: hsl(7, 88%, 67%); 
-}
-.error {
-    display: none;
-}
-
-.info img {
-    height: 10px;
-    width: 10px;
-}
-
-input {
-    border: solid 1px rgb(135, 130, 130);
-    width: 100%;
-    padding: 10px;
-    border-radius: .5rem;
-    background-color: hsl(246, 43%, 17%);
-    color: white;
-    font-family: "Inconsolata", serif;
-    transform: all 200ms ease;
-}
-
-.info-text {
-    margin-top: -10px;
-    margin-bottom: 20px;
-}
-
-
-.name-field, .email, .github {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-label {
-    font-family: "Inconsolata", serif;
-    margin-bottom: .5rem;
-    font-size: 13px;
-    display: block;
-}
-
-::placeholder {
-    font-family: "Inconsolata", serif;
-    color: white;
-    opacity: 60%;
-    font-weight: 400;
-}
-
-.form input:hover, .upload:hover {
-    background-color: hsla(246, 15%, 58%, .6);
-}
-
-.upload #file-input {
-    display: none;
-}
-
-.form input.error {
-    border: 1px solid hsl(245, 15%, 58%);
-}
-
 .generate-ticket {
     background-color: var(--Orange500) !important;
     color: black;
     font-weight: 700;
     border: none;
     padding: 10px;
-    cursor: pointer;
+    cursor: pointer !important;
     width: 100%;
     font-size: 1rem;
     transition: all 200ms ease;
+    border-radius: .5rem;
+    font-family: var(--Gradient-text);
 }
 
 .generate-ticket:hover {
@@ -302,7 +318,7 @@ label {
     margin: 0 auto 2rem auto;
 }
 
-.display-data .header {
+.display-data .headings {
     margin-bottom: 6rem;
     text-align: center;
 }
@@ -318,9 +334,18 @@ label {
     aspect-ratio: 16 / 9;
     max-width: 500px;
     padding: 1.5rem 0 0 1rem;
-    margin: auto;
+    margin: auto auto 0 auto;
     position: relative;
     border-radius: .5rem;
+}
+
+.ticket-container .logo {
+    margin-bottom: .5rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .ticket-container .date {
@@ -329,29 +354,33 @@ label {
     margin-bottom: 3rem;
 }
 
-.ticket-container .user-details {
+.ticket-container .ticket-user {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .7rem;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-.user-details img {
-    width: 50px;
-    border-radius: .75rem;
+.ticket-user img {
+    width: 60px;
+    border-radius: .5rem;
 }
 
-.user-details .user-info .display-name {
-    font-size: 1.5rem;
-    font-weight: 600;
+.ticket-user .user-info #display-name {
+    font-size: 1.3rem;
+    font-weight: 400;
 }
 
-.user-details .user-info .github-profile {
+.ticket-user .user-info .github-username {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .3rem;
+    margin-top: .3rem;
 }
 
-.github-profile img {
+.github-username img {
     width: 20px;
 }
 
@@ -367,18 +396,15 @@ label {
 .attribution { 
     font-size: 11px; 
     text-align: center;
-    padding: 30px 20px;
+    padding: 30px 15px;
 }
 
 .attribution a { 
     color: hsl(0, 0%, 100%); 
 }
 
-
-
-@media (max-width: 900px) {
-
-    .container {
+@media (max-width: 540px) {
+    .content-container {
         width: 100%;
     }
 
@@ -391,38 +417,78 @@ label {
         left: -30px;
     }
 
-    .header h1 {
+    .headings h1 {
         font-size: 2rem;
-        padding: 0 2rem 0 2rem;
+        padding: 0 1.5rem 0 1.5rem;
     }
 
-    .form {
+    .image-container {
+        overflow-y: hidden;
+    }
+
+    #ticket-form {
+        width: 90%; /* Wider on smaller screens */
+    }
+
+    .form-content {
         padding: 1rem 0;
-        width: 65%;
     }
 
     .display-data {
         padding: 0;
     }
 
-    .display-data .header p {
+    .display-data .headings p {
         padding: 0;
     }
 
-    .user-details img {
-        width: 35px;
-        padding-left: 1rem;
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+        padding-bottom: 2rem;
+        position: relative;
+    }
+
+    .ticket-user {
+        display: flex;
+        align-items: center;
+    
+    }
+
+    .ticket-user img {
+        width: 50px;
+        height: 60px;
+        margin-top: -20px;
+    }
+
+    .github-username {
+        display: flex;
+    }
+
+    .github-username img {
+        width: 20px;
+        height: 20px;
+        margin: 0;
     }
 
     .ticket-container .date {
         margin-bottom: 2rem;
     }
 
-    .user-details .user-info .display-name {
+    .ticket-number {
         font-size: 1.25rem;
     }
 
-    .ticket-number {
-        font-size: 1.25rem;
+    #display-name {
+        font-size: 1.25rem !important;
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .form-content {
+        height: 620px;
     }
 }
