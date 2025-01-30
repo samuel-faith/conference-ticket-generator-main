@@ -16,10 +16,6 @@
     font-family: "Inconsolata", serif;
 }
 
-.display-data {
-    display: none;
-}
-
 .display-data .headings {
    padding: 0 2rem 0 2rem;
 }
@@ -37,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: .5rem;
 }
 
 img {
@@ -114,11 +111,11 @@ body {
 }
 
 .headings h1 {
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     margin-bottom: 1rem;
-    padding: 0 2rem 0 2rem;
     font-weight: 700;
+    width: 100%;
 }
 
 .headings p {
@@ -138,7 +135,7 @@ body {
 }
 
 #ticket-form {
-    width: 50%; /* Full width on smaller screens */
+    width: 100%; /* Full width on smaller screens */
     max-width: 500px; /* Limit width for better readability */
     margin: 0 auto; /* Center horizontally */
 }
@@ -307,10 +304,8 @@ body {
 
 .display-data {
     padding: 1rem;
-    margin: auto;
-    width: 90%;
+    width: 100%;
     position: relative;
-    max-width: 800px;
     z-index: 20;
 }
 
@@ -323,8 +318,11 @@ body {
     text-align: center;
 }
 
-.display-data .header p {
-    padding: 0 7.5rem;
+.display-data .headings p {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    line-height: 1rem;
 }
 
 .display-data .ticket-container {
@@ -332,52 +330,39 @@ body {
     background: url(./assets/images/pattern-ticket.svg) no-repeat;
     background-size: contain;
     aspect-ratio: 16 / 9;
-    max-width: 500px;
-    padding: 1.5rem 0 0 1rem;
-    margin: auto auto 0 auto;
+    padding: 1rem 0 3rem 1rem;
+    margin: 0 auto 0 auto;
     position: relative;
     border-radius: .5rem;
 }
 
-.ticket-container .logo {
-    margin-bottom: .5rem;
-    font-size: 2.75rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.display-logo {
+    width: 150px;
 }
 
 .ticket-container .date {
     color: var(--Neutral300);
-    padding: .5rem 0 0 3rem;
-    margin-bottom: 3rem;
+    padding: .5rem 0 0 2rem;
+    font-size: .9rem;
 }
 
 .ticket-container .ticket-user {
     display: flex;
     align-items: center;
     gap: .7rem;
-    margin-top: 4.5rem;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin-top: 2.5rem;
+    padding: 0 0 2rem 0;
 }
 
 .ticket-user img {
-    width: 60px;
+    width: 40px;
     border-radius: .5rem;
-}
-
-.ticket-user .user-info #display-name {
-    font-size: 1.3rem;
-    font-weight: 400;
 }
 
 .ticket-user .user-info .github-username {
     display: flex;
     align-items: center;
-    gap: .3rem;
-    margin-top: .3rem;
+    gap: .1rem;
 }
 
 .github-username img {
@@ -389,8 +374,8 @@ body {
     transform: rotate(90deg);
     font-size: 1.75rem;
     color: var(--Neutral500);
-    top: 36%;
-    right: 5px;
+    top: 30%;
+    right: .1px;
 }
 
 .attribution { 
@@ -403,9 +388,13 @@ body {
     color: hsl(0, 0%, 100%); 
 }
 
-@media (max-width: 540px) {
+@media (min-width: 1440px) {
+
+    .display-data {
+        display: none;
+    }
     .content-container {
-        width: 100%;
+        width: 50%;
     }
 
     .svg-image:nth-child(2) {
@@ -417,9 +406,10 @@ body {
         left: -30px;
     }
 
-    .headings h1 {
-        font-size: 2rem;
-        padding: 0 1.5rem 0 1.5rem;
+    .form-content .headings h1 {
+        font-size: 2.5rem;
+        padding: 0 3rem 0 3rem;
+        line-height: 3rem;
     }
 
     .image-container {
@@ -427,7 +417,7 @@ body {
     }
 
     #ticket-form {
-        width: 90%; /* Wider on smaller screens */
+        width: 50%; /* Wider on smaller screens*/
     }
 
     .form-content {
@@ -435,60 +425,71 @@ body {
     }
 
     .display-data {
-        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .display-data .headings h1 {
+        font-size: 2.5rem;
+        padding: 0 4rem 0 4rem;
+        line-height: 3rem;
     }
 
     .display-data .headings p {
-        padding: 0;
+        padding: 0 5rem 0 5rem;
+    }
+
+    .ticket-container {
+        width: 60%;
     }
 
     .user-info {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 0;
-        padding-bottom: 2rem;
-        position: relative;
     }
 
     .ticket-user {
         display: flex;
         align-items: center;
-    
+        margin-top: 2rem;
+    }
+
+    .display-logo {
+        width: 900px;
     }
 
     .ticket-user img {
         width: 50px;
-        height: 60px;
-        margin-top: -20px;
     }
 
     .github-username {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 7rem 0 0;
+        font-size: 1rem;
+        color: var(--Neutral300);
     }
 
     .github-username img {
-        width: 20px;
-        height: 20px;
-        margin: 0;
+        width: 15px;
     }
 
     .ticket-container .date {
         margin-bottom: 2rem;
+        padding: .5rem 0 0 3rem;
     }
 
     .ticket-number {
-        font-size: 1.25rem;
+        font-size: 2rem;
     }
 
     #display-name {
-        font-size: 1.25rem !important;
-        text-align: left !important;
-    }
-}
-
-@media (max-width: 400px) {
-    .form-content {
-        height: 620px;
+        font-size: 1.5rem;
+        padding: 0;
+        margin-bottom: .5rem;
     }
 }
