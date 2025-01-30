@@ -16,6 +16,10 @@
     font-family: "Inconsolata", serif;
 }
 
+.display-data {
+    display: none;
+}
+
 .display-data .headings {
    padding: 0 2rem 0 2rem;
 }
@@ -393,6 +397,11 @@ body {
     .display-data {
         display: none;
     }
+
+    .display-data.show {
+        display: block;
+    }
+
     .content-container {
         width: 50%;
     }
@@ -424,13 +433,6 @@ body {
         padding: 1rem 0;
     }
 
-    .display-data {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
     .display-data .headings h1 {
         font-size: 2.5rem;
         padding: 0 4rem 0 4rem;
@@ -438,7 +440,8 @@ body {
     }
 
     .display-data .headings p {
-        padding: 0 5rem 0 5rem;
+        padding: 0 9rem 0 9rem;
+        line-height: 1.5rem;
     }
 
     .ticket-container {
@@ -449,6 +452,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .ticket-user {
@@ -469,17 +473,22 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 7rem 0 0;
         font-size: 1rem;
+        gap: .5rem;
         color: var(--Neutral300);
+        padding: 0;
+        margin: 0;
     }
 
     .github-username img {
         width: 15px;
+        height: 15px;
+        margin: 0;
+        padding: 0;
     }
 
     .ticket-container .date {
-        margin-bottom: 2rem;
+        margin-bottom: 4.2rem;
         padding: .5rem 0 0 3rem;
     }
 
@@ -489,7 +498,6 @@ body {
 
     #display-name {
         font-size: 1.5rem;
-        padding: 0;
         margin-bottom: .5rem;
     }
 }
