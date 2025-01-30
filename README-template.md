@@ -1,6 +1,6 @@
 # Frontend Mentor - Conference ticket generator solution
 
-This is a solution to the [Conference ticket generator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Conference ticket generator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w).
 
 
 ### The challenge
@@ -20,13 +20,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/samuel-faith/conference-ticket-generator-main)
+- Live Site URL: [Add live site URL here](https://samuel-faith.github.io/conference-ticket-generator-main/)
 
 
 ### Built with
@@ -36,12 +36,9 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Data handling and reusing with JavaScript
 
