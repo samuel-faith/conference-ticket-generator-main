@@ -130,8 +130,6 @@ body {
 .gradient-text {
     background: var(--Gradient-text);
     background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .header-email {
