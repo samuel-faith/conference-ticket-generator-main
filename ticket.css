@@ -472,7 +472,7 @@ body {
 
     .github-username {
         display: flex;
-        align-items: center;
+        align-items: start;
         justify-content: center;
         font-size: .9rem;
         gap: .5rem;
